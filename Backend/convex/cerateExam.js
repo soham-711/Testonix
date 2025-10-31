@@ -73,3 +73,5 @@ export const createExam = mutation({
     return { examId };
   },
 });
+
+

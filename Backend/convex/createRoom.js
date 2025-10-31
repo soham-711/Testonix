@@ -142,3 +142,18 @@ export const updateMemberMarks = mutation({
     // Optionally insert a notification to owner
   },
 });
+
+
+
+export const getRoomsByOwner = query({
+  args: { ownerUid: v.string() },
+  handler: async (ctx, { ownerUid }) => {
+    // Fetch all rooms that match the owner's UID
+    const rooms = await ctx.db
+      .query("rooms")
+      .filter((q) => q.eq(q.field("ownerUid"), ownerUid))
+      .collect();
+
+    return rooms;
+  },
+});
