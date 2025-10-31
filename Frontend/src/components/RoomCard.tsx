@@ -28,6 +28,7 @@ const RoomCard = ({ name, dateCreated, participants, roomId }: RoomCardProps) =>
         roomId: roomId || name.toLowerCase().replace(/\s+/g, '-')
       } 
     });
+    localStorage.setItem("roomId",roomId);
   };
 
   return (

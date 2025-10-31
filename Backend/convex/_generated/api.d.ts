@@ -10,6 +10,7 @@
 
 import type * as cerateExam from "../cerateExam.js";
 import type * as createRoom from "../createRoom.js";
+import type * as roomMembers from "../roomMembers.js";
 import type * as user from "../user.js";
 
 import type {
@@ -29,6 +30,7 @@ import type {
 declare const fullApi: ApiFromModules<{
   cerateExam: typeof cerateExam;
   createRoom: typeof createRoom;
+  roomMembers: typeof roomMembers;
   user: typeof user;
 }>;
 declare const fullApiWithMounts: typeof fullApi;
