@@ -21,6 +21,7 @@ export default defineSchema({
     ownerUid: v.string(),
     examName: v.string(),
     examSubtitle: v.string(),
+    gformlink: v.optional(v.string()), 
     startDate: v.optional(v.string()),
     startTime: v.optional(v.string()),
     endDate: v.optional(v.string()),

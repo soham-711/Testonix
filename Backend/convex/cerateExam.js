@@ -9,6 +9,7 @@ export const createExam = mutation({
     startTime: v.optional(v.string()),
     endDate: v.optional(v.string()),
     endTime: v.optional(v.string()),
+    gformlink: v.optional(v.string()),
     totalTimeLimit: v.float64(),
     totalMarks: v.optional(v.float64()),
     published: v.boolean(),
