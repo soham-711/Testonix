@@ -14,6 +14,7 @@ export default function JoinRoomPage() {
   const [room, setRoom] = useState(null);
   const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({});
+  console.log(user);
 
   // STEP 1: Fetch room info
   useEffect(() => {

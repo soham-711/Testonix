@@ -95,7 +95,8 @@ roomMembers: defineTable({
   marks: v.optional(v.record(v.string(), v.number())),
 })
 .index("by_roomId", ["roomId"])
-.index("by_email", ["email"]),
+.index("by_email", ["email"])
+.index("by_uid", ["uid"]),
 
 
 

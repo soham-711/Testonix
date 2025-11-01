@@ -5,6 +5,8 @@ import userRoutes from "./Router/userRoutes.js"
 import examRoutes from "./Router/examRoutes.js";
 import createRoom from "./Router/createRoomRoutes.js";
 import findRoom from "./Router/findRoomRoute.js";
+import publishExam from "./Router/publishExamRoute.js";
+import fetchexamRoutes from "./Router/fetchExamRoute.js";
 
 dotenv.config();
 
@@ -17,6 +19,8 @@ app.use("/api/users", userRoutes);
 app.use("/api/exams", examRoutes);
 app.use("/api/rooms", createRoom);
 app.use("/api/rooms", findRoom);
+app.use("/api/exams",publishExam)
+app.use("/api/exams", fetchexamRoutes);
 // health check
 app.get("/health", (req, res) => {
   res.json({ status: "Testonix server is running ✅" });

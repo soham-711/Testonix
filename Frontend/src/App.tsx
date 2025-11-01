@@ -14,7 +14,7 @@
 
 // const AppContent = () => {
 //   const location = useLocation();
-  
+
 //   // Hide footer on QuestionPaper route
 //   const showFooter = location.pathname !== "/question-paper";
 
@@ -49,13 +49,17 @@
 
 // export default App;
 
-
-
 import { Toaster } from "./components/ui/toaster";
 import { Toaster as Sonner } from "./components/ui/sonner";
 import { TooltipProvider } from "./components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
@@ -68,7 +72,10 @@ import AIGenerator from "./pages/AIGenerator";
 import RoomDetails from "./pages/RoomDetails";
 import InviteLink from "./pages/JoinRoomPage";
 import JoinRoomPage from "./pages/JoinRoomPage";
-
+import TermsAndConditions from "./pages/TermsAndConditions";
+import ExamInfo from "./pages/ExamInfo";
+import TakeExam from "./pages/TakeExam";
+import ExamSubmitted from "./pages/ExamSubmitted";
 
 const queryClient = new QueryClient();
 
@@ -88,22 +95,22 @@ const RoomDetailsWrapper = () => {
 
   // Redirect to dashboard if no state is provided
   if (!state) {
-    navigate('/dashboard');
+    navigate("/dashboard");
     return null;
   }
 
   return (
     <RoomDetails
+      roomId={state.roomId ?? ""}
       roomName={state.roomName}
       dateCreated={state.dateCreated}
       totalStudents={state.totalStudents}
-      onBack={() => navigate('/dashboard')}
+      onBack={() => navigate("/dashboard")}
     />
   );
 };
 
 // Removed duplicate/incomplete AppContent definition
-  
 
 const AppContent = () => {
   const location = useLocation();
@@ -146,11 +153,11 @@ const AppContent = () => {
             }
           />
 
-           <Route
+          <Route
             path="/ai-generator"
             element={
               <ProtectedRoute>
-                <AIGenerator/>
+                <AIGenerator />
               </ProtectedRoute>
             }
           />
@@ -159,7 +166,7 @@ const AppContent = () => {
             path="/join-room/:inviteCode"
             element={
               <ProtectedRoute>
-                <JoinRoomPage/>
+                <JoinRoomPage />
               </ProtectedRoute>
             }
           />
@@ -168,7 +175,43 @@ const AppContent = () => {
             path="/room-details"
             element={
               <ProtectedRoute>
-                <RoomDetailsWrapper/>
+                <RoomDetailsWrapper />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/exam/:examId/terms"
+            element={
+              <ProtectedRoute>
+                <TermsAndConditions />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/exam/:examId/info"
+            element={
+              <ProtectedRoute>
+                <ExamInfo />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/exam/:examId/take"
+            element={
+              <ProtectedRoute>
+                <TakeExam/>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/exam/:examId/submitted"
+            element={
+              <ProtectedRoute>
+                <ExamSubmitted/>
               </ProtectedRoute>
             }
           />

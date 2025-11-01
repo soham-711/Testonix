@@ -294,7 +294,7 @@ const handleCreate = async () => {
     // Optionally copy the invite link to clipboard
     if (data.inviteLink) {
       console.log(data.inviteLink);
-      
+      localStorage.setItem("invitelink",data.inviteLink)
       await navigator.clipboard.writeText(data.inviteLink);
     }
 
