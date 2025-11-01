@@ -550,7 +550,7 @@ const handleCreate = async () => {
                         <div className="glass-effect border-2 border-dashed border-blue-300 hover:border-blue-500 rounded-xl p-8 text-center hover-lift cursor-pointer relative group transition-all duration-300">
                           <input
                             type="file"
-                            accept=".xlsx,.xls,.doc,.docx"
+                            accept=".xlsx,.xls,.doc,.docx,.csv"
                             onChange={handleFileUpload}
                             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer rounded-xl"
                           />
@@ -564,7 +564,7 @@ const handleCreate = async () => {
                               Click to upload or drag and drop
                             </p>
                             <p className="text-sm text-gray-600">
-                              .xlsx, .xls, .doc, .docx up to 10MB
+                              .xlsx, .xls, .doc, .docx, .csv up to 10MB
                             </p>
                           </div>
                           {uploadedFile && (
